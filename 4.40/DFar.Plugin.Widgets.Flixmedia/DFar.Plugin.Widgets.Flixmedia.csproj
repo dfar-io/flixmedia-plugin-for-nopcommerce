@@ -18,6 +18,8 @@
     <None Remove="plugin.json" />
     <None Remove="Views\_ViewImports.cshtml" />
     <None Remove="Views\Configure.cshtml" />
+    <None Remove="Views\ContentDisplay.cshtml" />
+    <None Remove="Views\Script.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +33,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Configure.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\ContentDisplay.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Script.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

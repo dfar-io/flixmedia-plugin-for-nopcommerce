@@ -3,6 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Nop.Web.Framework.Components;
 using Nop.Core;
 using System.Threading.Tasks;
+using Nop.Web.Framework.Infrastructure;
+using DFar.Plugin.Widgets.Flixmedia.Models;
+using Nop.Web.Models.Catalog;
+using System.Linq;
+using Nop.Services.Catalog;
 
 namespace DFar.Plugin.Widgets.Flixmedia.Components
 {
@@ -34,27 +39,19 @@ namespace DFar.Plugin.Widgets.Flixmedia.Components
 
             if (widgetZone == _settings.WidgetZone)
             {
-                return Content("<div>it works!</div>");
+                return View("~/Plugins/Widgets.Flixmedia/Views/ContentDisplay.cshtml");
             }
-            // if (widgetZone == _settings.ProductDetailWidgetZone)
-            // {
-            //     return View("~/Plugins/Widgets.Flixmedia/Views/Detail.cshtml");
-            // }
-            // if (widgetZone == _settings.ProductDetailReviewsWidgetZone)
-            // {
-            //     return View("~/Plugins/Widgets.Flixmedia/Views/DetailReviews.cshtml");
-            // }
-
-            // Scripts
-            // if (widgetZone == PublicWidgetZones.CategoryDetailsBottom ||
-            //     widgetZone == PublicWidgetZones.ManufacturerDetailsBottom)
-            // {
-            //     return View("~/Plugins/Widgets.Flixmedia/Views/ListingScript.cshtml", _settings);
-            // }
-            // if (widgetZone == PublicWidgetZones.ProductDetailsBottom)
-            // {
-            //     return await Detail(additionalData as ProductDetailsModel);
-            // }
+            if (widgetZone == PublicWidgetZones.ProductDetailsBottom)
+            {
+                var productDetailsModel = additionalData as ProductDetailsModel;
+                var model = new ScriptModel()
+                {
+                    Id = _settings.FlixID,
+                    Brand = productDetailsModel.ProductManufacturers.FirstOrDefault()?.Name ?? "",
+                    Sku = productDetailsModel.Sku
+                };
+                return View("~/Plugins/Widgets.Flixmedia/Views/Script.cshtml", model);
+            }
 
             await _logger.ErrorAsync($"Widgets.Flixmedia: No view provided for widget zone {widgetZone}");
             return Content("");

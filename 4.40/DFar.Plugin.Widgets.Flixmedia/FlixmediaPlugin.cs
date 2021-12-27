@@ -53,7 +53,8 @@ namespace DFar.Plugin.Widgets.Flixmedia
         {
             return Task.FromResult<IList<string>>(new List<string>
             {
-                _settings.WidgetZone
+                _settings.WidgetZone,
+                PublicWidgetZones.ProductDetailsBottom
             });
         }
 
