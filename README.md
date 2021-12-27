@@ -1,3 +1,7 @@
+![Build](https://github.com/dfar-io/flixmedia-plugin-for-nopcommerce/actions/workflows/build.yml/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ed89af7c256970b8d95d/maintainability)](https://codeclimate.com/github/dfar-io/flixmedia-plugin-for-nopcommerce/maintainability)
+
+
 # flixmedia-plugin-for-nopcommerce
 Integrates Flixmedia into a NopCommerce store.
 
