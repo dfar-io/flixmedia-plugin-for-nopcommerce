@@ -3,7 +3,8 @@
 
 
 # flixmedia-plugin-for-nopcommerce
-Integrates Flixmedia into a NopCommerce store.
+
+Integrates Flixmedia into a NopCommerce store. This plugin will use a product's first manufacturer and SKU to provide Flixmedia the data required for syndication.
 
 ## Requirements
 
